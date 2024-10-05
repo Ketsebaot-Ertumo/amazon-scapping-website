@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API } from '../api/proxy';
 
 const ProductTable = () => {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
     const title = 'Adeptus Mechanicus Sicarians Warhammer 40,000';
-    // const priceCents = 3210; // $32.10 in cents
+    const priceCents = "$51"; // $32.10 in cents
     const url = process.env.REACT_APP_URL2;
     const apiKey = process.env.REACT_APP_apiKey2;
     // const title = [];
@@ -15,8 +16,9 @@ const ProductTable = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(
-                    `${url}/search/?key=${apiKey}&q=${encodeURIComponent(title)}`
+                const response = await API.get(
+                    `${url}/search/?key=${apiKey}&q=${title}`
+                    // `${url}/search/?key=${apiKey}&q=${encodeURIComponent(title)}`
                 );
                 const foundProducts = response.data.product_result.pricing || [];
 

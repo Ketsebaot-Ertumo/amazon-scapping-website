@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Task3 from './components/task3';
+import Show3 from './components/show3';
 import Task1 from './components/task1';
 import Home from './components/singlePage';
 import { ToastContainer } from 'react-toastify';
@@ -18,7 +18,7 @@ const App = () => {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/task/1' element={<Task1 />} />
-                <Route path='/task/3' element={<Task3 />} />
+                <Route path='/task/3' element={<Show3 />} />
                </Routes>
             </BrowserRouter>
           </ProSidebarProvider>
