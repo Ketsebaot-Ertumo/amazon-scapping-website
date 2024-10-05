@@ -75,16 +75,18 @@ const ProductTable1 = () => {
             renderCell: (params) => {
                 const baseUrl = "https://images-na.ssl-images-amazon.com/images/I/"; // Use the correct base URL
                 const images = params.row.imagesCSV ? params.row.imagesCSV.split(',') : [];
-                
+              
                 return images.length > 0 ? (
-                    images.map((image, index) => (
-                        <img 
-                            key={index} 
-                            src={`${baseUrl}${image}`} // Construct full URL
-                            alt={`Image-${index + 1}`} 
-                            style={{ width: '50px', height: 'auto', marginRight: '5px' }} 
-                        />
-                    ))
+                    <div style={{ display: 'flex', overflowX: 'auto' }}>
+                        {images.map((image, index) => (
+                            <img 
+                                key={index} 
+                                src={`${baseUrl}${image}`} 
+                                alt={`Image-${index + 1}`} 
+                                style={{ width: '50px', height: 'auto', marginRight: '5px' }} 
+                            />
+                        ))}
+                    </div>
                 ) : (
                     'Null'
                 );
@@ -197,7 +199,7 @@ const ProductTable1 = () => {
                 rows={products}  // Assuming `products.data` contains your list of products
                 columns={columns}
                 pageSize={10}
-                disableSelectionOnClick
+                // disableSelectionOnClick
                 pagination
                 pageSizeOptions={[5,10,25,50,100]}
             />
